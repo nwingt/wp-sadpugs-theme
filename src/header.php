@@ -11,7 +11,9 @@
 <header class="hero-head section">
 	<nav class="navbar" role="navigation" aria-label="main navigation">
 		<div class="container is-flex is-justify-content-center">
-			<h1 class="title"><?php echo get_bloginfo( 'name' ); ?></h1>
+			<h1 class="title">
+				<a href="<?php echo site_url(); ?>"><?php echo get_bloginfo( 'name' ); ?></a>
+			</h1>
 		</div>
 	</nav>
 </header>
