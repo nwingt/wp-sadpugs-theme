@@ -9,3 +9,4 @@ docker-compose up
 
 - [WordPress Theme Handbook](https://developer.wordpress.org/themes/)
 - [The Template File Hierarchy](https://wphierarchy.com/)
+- [Source code](https://github.com/WordPress/WordPress/)
