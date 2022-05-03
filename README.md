@@ -8,3 +8,4 @@ docker-compose up
 ## References
 
 - [WordPress Theme Handbook](https://developer.wordpress.org/themes/)
+- [The Template File Hierarchy](https://wphierarchy.com/)
