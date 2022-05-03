@@ -6,3 +6,18 @@ Version: 1.0
 
 Ref: https://developer.wordpress.org/themes/basics/main-stylesheet-style-css/#explanations
 */
+
+@import "https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&family=Patrick+Hand&display=swap";
+
+* {
+  font-family: 'PT Sans', sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Patrick Hand', cursive;
+}
