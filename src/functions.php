@@ -42,4 +42,38 @@ function add_header_menu_classes($classes, $item, $args) {
 }
 add_filter('nav_menu_css_class', 'add_header_menu_classes', 10, 4);
 
+add_theme_support('post-thumbnails');
+
+function add_custom_post_type() {
+  // https://developer.wordpress.org/reference/functions/register_taxonomy/
+  register_taxonomy(
+    'pug_positions',
+    array('pugs'),
+    array(
+      'labels'       => array(
+        'name'          => __( 'Pug Positions', 'sadpugs' ),
+        'singular_name' => __( 'Pug Position', 'sadpugs' ),
+      ),
+      'public'          => true,
+      'hierarchical' => false,
+      'rewrite'      => array('slug' => 'pugs/positions', 'with_front' => false)
+    )
+  );
+
+  // https://developer.wordpress.org/reference/functions/register_post_type/
+  register_post_type('pugs',
+    array(
+      'labels'                => array(
+        'name'          => __( 'Pugs', 'sadpugs' ),
+        'singular_name' => __( 'Pug', 'sadpugs' ),
+      ),
+      'menu_icon'             => 'dashicons-pets',
+      'public'                => true,
+      'has_archive'           => true,
+      'supports'              => array('title', 'editor', 'thumbnail'),
+      'taxonomies'            => array('pug_positions')
+    )
+  );
+}
+add_action('init', 'add_custom_post_type');
 ?>
