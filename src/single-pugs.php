@@ -43,6 +43,18 @@ if (have_posts()) {
           </div>
         </div>
       </div>
+      <?php 
+      $sadness = get_post_meta($post->ID, 'sadness', true);
+      if ($sadness) { ?>
+        <div class="card-footer">
+          <div class="card-footer-item">
+            <div class="has-text-weight-bold">Sadness</div>
+          </div>
+          <div class="card-footer-item">
+            <div class="is-italic"><?php echo $sadness; ?></div>
+          </div>
+        </div>
+      <?php } ?>
     </div>
     <div class="content"><?php the_content(); ?></div>
   </a>

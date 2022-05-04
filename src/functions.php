@@ -70,7 +70,7 @@ function add_custom_post_type() {
       'menu_icon'             => 'dashicons-pets',
       'public'                => true,
       'has_archive'           => true,
-      'supports'              => array('title', 'editor', 'thumbnail'),
+      'supports'              => array('title', 'editor', 'thumbnail', 'custom-fields'),
       'taxonomies'            => array('pug_positions')
     )
   );
