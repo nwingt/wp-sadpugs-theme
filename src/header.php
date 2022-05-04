@@ -31,16 +31,25 @@
 
 			<div class="navbar-menu">
 					<?php
-					// https://developer.wordpress.org/reference/functions/wp_nav_menu/
-					wp_nav_menu(
-						array(
-							'theme_location' => 'header-menu',
-							'container' => '',
-							'items_wrap' => '<ul id="%1$s" class="%2$s navbar-end">%3$s</ul>',
-							'depth' => 1,
-						)
-					);
-					?>
+					$theme_locations = get_nav_menu_locations();
+					if (isset($theme_locations['header-menu'])) {
+						// https://developer.wordpress.org/reference/functions/wp_nav_menu/
+						wp_nav_menu(
+							array(
+								'theme_location' => 'header-menu',
+								'container' => '',
+								'items_wrap' => '<ul id="%1$s" class="%2$s navbar-end">%3$s</ul>',
+								'depth' => 1,
+								'fallback_cb' => 'false'
+							)
+						);
+					} else { ?>
+						<div class="navbar-end">
+							<div class="notification is-danger is-light has-text-centered">
+								Please set header-menu
+							</div>
+						</div>
+					<?php } ?>
 			</div>
 		</nav>
 	</div>
