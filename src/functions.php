@@ -76,4 +76,16 @@ function add_custom_post_type() {
   );
 }
 add_action('init', 'add_custom_post_type');
+
+// Limit the posts per page to 9
+function set_posts_per_page($query) {
+  global $wp_the_query;
+
+  if (!is_admin() && $query === $wp_the_query && $query->is_archive()) {
+    $query->set('posts_per_page', 9);
+  }
+
+  return $query;
+}
+add_action('pre_get_posts', 'set_posts_per_page');
 ?>

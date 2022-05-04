@@ -17,18 +17,31 @@
       <?php } ?>
     </ul>
   </div>
-  <ul class="columns is-flex-wrap-wrap">
+  <div>
     <?php
-    if (have_posts()) {
+    if (have_posts()) { ?>
+      <ul class="columns is-flex-wrap-wrap">
+      <?php 
       while (have_posts()) {
         the_post();
         get_template_part('template-parts/post/pug-thumbnail');
       }
+      ?>
+      </ul>
+      <div class="tags is-justify-content-center">
+        <?php if (get_previous_posts_link()) { ?>
+          <div class="tag"><?php previous_posts_link('Previous Page'); ?></a> 
+        <?php } ?>
+        <?php if (get_next_posts_link()) { ?>
+          <div class="tag"><?php next_posts_link('Next Page'); ?></a>
+        <?php } ?>
+      </div>
+      <?php
     } else {
       _e('Sorry, no pugs matched your criteria.', 'sadpugs');
     }
     ?>
-  </ul>
+  </div>
 </div>
 
 <?php get_footer(); ?>
